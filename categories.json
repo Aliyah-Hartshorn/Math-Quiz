@@ -1,0 +1,107 @@
+{
+  "Arithmetic": [
+    { "generator": "whole_addition", "params": { "min_value": 1, "max_value": 20 } },
+    { "generator": "whole_subtraction", "params": { "min_value": 1, "max_value": 20 } },
+    { "generator": "whole_multiplication", "params": { "min_value": 2, "max_value": 10 } },
+    { "generator": "whole_division", "params": { "min_value": 2, "max_value": 10 } },
+    { "generator": "decimal_addition" },
+    { "generator": "decimal_subtraction" },
+    { "generator": "fraction_of_number" },
+    { "generator": "percentage_of" },
+    { "generator": "decimal_multiplication" },
+    { "generator": "percentage_change" }
+  ],
+  "Number Theory": [
+    { "generator": "modulo_basic" },
+    { "generator": "gcd_two_numbers" },
+    { "generator": "lcm_two_numbers" },
+    { "generator": "divisor_count" },
+    { "generator": "modular_exponentiation" },
+    { "generator": "euler_totient" }
+  ],
+  "Algebra": [
+    { "generator": "solve_addition_one_step" },
+    { "generator": "solve_multiplication_one_step" },
+    { "generator": "solve_two_step_linear" },
+    { "generator": "evaluate_expression" },
+    { "generator": "quadratic_larger_root" },
+    { "generator": "linear_system_solve_x" }
+  ],
+  "Precalculus": [
+    { "generator": "function_composition_linear" },
+    { "generator": "logarithm_basic" },
+    { "generator": "exponential_evaluate" },
+    { "generator": "log_equation_solve" },
+    { "generator": "inverse_function_linear" },
+    { "generator": "natural_log_evaluate" }
+  ],
+  "Geometry": [
+    { "generator": "rectangle_perimeter" },
+    { "generator": "rectangle_area" },
+    { "generator": "triangle_area" },
+    { "generator": "circle_area" },
+    { "generator": "pythagorean_hypotenuse" },
+    { "generator": "rectangular_prism_volume" }
+  ],
+  "Trigonometry": [
+    { "generator": "sine_of_common_angle" },
+    { "generator": "cosine_of_common_angle" },
+    { "generator": "tangent_of_common_angle" },
+    { "generator": "triangle_missing_angle" },
+    { "generator": "right_triangle_opposite_side" }
+  ],
+  "Combinatorics": [
+    { "generator": "factorial_value" },
+    { "generator": "permutations_count" },
+    { "generator": "combinations_count" },
+    { "generator": "coin_flip_probability" }
+  ],
+  "Statistics": [
+    { "generator": "mean_of_list" },
+    { "generator": "range_of_list" },
+    { "generator": "median_of_list" },
+    { "generator": "simple_probability" }
+  ],
+  "Complex Numbers": [
+    { "generator": "complex_addition_component" },
+    { "generator": "complex_modulus" },
+    { "generator": "complex_multiplication_component" },
+    { "generator": "complex_conjugate_modulus_squared" },
+    { "generator": "complex_power_de_moivre" }
+  ],
+  "Sequences & Series": [
+    { "generator": "arithmetic_sequence_nth_term" },
+    { "generator": "geometric_sequence_nth_term" },
+    { "generator": "arithmetic_series_sum" },
+    { "generator": "geometric_series_sum" },
+    { "generator": "infinite_geometric_series_sum" }
+  ],
+  "Calculus": [
+    { "generator": "derivative_of_quadratic_at_point" },
+    { "generator": "derivative_of_cubic_at_point" },
+    { "generator": "definite_integral_of_linear" },
+    { "generator": "limit_at_infinity_ratio" },
+    { "generator": "limit_by_factoring" }
+  ],
+  "Multivariable Calculus": [
+    { "generator": "partial_derivative_x_at_point" },
+    { "generator": "partial_derivative_y_at_point" },
+    { "generator": "gradient_magnitude_at_point" },
+    { "generator": "double_integral_over_rectangle" },
+    { "generator": "divergence_at_point" }
+  ],
+  "Differential Equations": [
+    { "generator": "exponential_growth_at_time" },
+    { "generator": "exponential_decay_half_life" },
+    { "generator": "newtons_law_of_cooling" },
+    { "generator": "characteristic_equation_larger_root" },
+    { "generator": "logistic_growth_at_time" }
+  ],
+  "Linear Algebra": [
+    { "generator": "vector_addition_component" },
+    { "generator": "vector_dot_product_2d" },
+    { "generator": "vector_magnitude_2d" },
+    { "generator": "matrix_determinant_2x2" },
+    { "generator": "matrix_addition_entry" }
+  ]
+}
