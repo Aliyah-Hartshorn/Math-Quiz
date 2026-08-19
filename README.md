@@ -9,7 +9,7 @@ A section-by-section walkthrough of math_quiz.py, a Python port of the original 
 
 This is a single-file Python console application (math_quiz.py) that generates randomized, timed math questions across seven topics — Arithmetic, Algebra, Geometry, Trigonometry, Calculus, Linear Algebra, and Statistics — with difficulty that increases as the player progresses through a round.
 It is a direct, function-for-function port of the original C# version (Program.cs). The public behavior — every prompt, every formula, every difficulty curve, every edge case — is unchanged; what's different is purely how those ideas are expressed in idiomatic Python: class Question with typed fields becomes a @dataclass, C# Func<Question> delegates become plain Python callables (functions and lambdas), and Dictionary<string, List<Func<Question>>> becomes a Python dict[str, list[Callable[[], Question]]].
-It is entirely platform-independent: it uses only the Python standard library (random, math, time, dataclasses, typing) for I/O and math, so it runs identically on Windows, macOS, and Linux with any Python 3.9+ interpreter — no pip install, no virtual environment, and no external packages are required.
+It is entirely platform-independent: it uses only the Python standard library (random, math, time, dataclasses, typing) for I/O and math, so it runs identically on Windows, macOS, and Linux with any Python 3.9+ interpreter; no pip install, no virtual environment, and no external packages are required.
 
 
 ## Contents
@@ -26,7 +26,7 @@ It is entirely platform-independent: it uses only the Python standard library (r
 10. [Step-by-Step: Getting It Running](#10-step-by-step-getting-it-running)
 11. [Runtime Walkthrough](#11-runtime-walkthrough-what-happens-when-you-run-it)
 
-The program has no external dependencies, no UI framework, and no persistence — everything lives in memory for the duration of a single run, exactly as in the original.
+The program has no external dependencies, no UI framework, and no persistence, everything lives in memory for the duration of a single run, exactly as in the original.
 
 ## 2. High-Level Architecture
 
@@ -35,7 +35,7 @@ The code is organized into one data structure and a set of module-level function
 - Question — a @dataclass, Python's built-in tool for plain data containers (the equivalent of a C# DTO), representing one generated question.
 - main(), run_quiz(), generate_question(), and friends — ordinary module-level functions holding all program logic: I/O, control flow, difficulty scaling, and every individual question generator. Python has no requirement to wrap these in a class the way C# requires a containing type (Program), so they live directly at module scope.
 
-As in the original, there is no object-oriented modeling of "topics" as classes — instead, topics are represented as a Dict[str, List[Callable[[], Question]]], which remains the structural core of the whole design (explained in detail in Section 5).
+As in the original, there is no object-oriented modeling of "topics" as classes. Instead, topics are represented as a Dict[str, List[Callable[[], Question]]], which remains the structural core of the whole design (explained in detail in Section 5).
 
 ### 2.1 The Question dataclass
 
@@ -47,7 +47,7 @@ class Question:
     answer: float
     tolerance: float
     time_limit_seconds: int
-Every question generator function, regardless of topic, returns one of these. The @dataclass decorator auto-generates __init__, __repr__, and __eq__ from the type-annotated fields — the Python idiom for exactly what the C# version's plain field-only class was doing manually. This is the key abstraction that lets wildly different math domains (arithmetic, calculus, statistics) share one grading and timing pipeline:
+Every question generator function, regardless of topic, returns one of these. The @dataclass decorator auto-generates __init__, __repr__, and __eq__ from the type-annotated fields, the Python idiom for exactly what the C# version's plain field-only class was doing manually. This is the key abstraction that lets wildly different math domains (arithmetic, calculus, statistics) share one grading and timing pipeline:
 
 - prompt — the exact string shown to the player. Since it's just free text, prompts can represent anything printable: "7 + 12", "f(x) = 3x^2 + 2x. Find f'(1)", "Determinant of matrix [[2, 5], [1, 3]]".
 - answer — the correct answer, always stored as a float, even for problems that are conceptually integer-valued (e.g., matrix determinants). This uniformity is what allows one comparison routine to grade every topic.
@@ -70,14 +70,14 @@ Every question generator function, regardless of topic, returns one of these. Th
         play_again = response is not None and response.strip().lower().startswith("y")
 ```
 
-Just as in the C# version, main() is intentionally thin. It only orchestrates three things per round: ask which topic, ask how many questions, run the quiz. The play_again loop means the whole program is really a loop of independent "rounds," each of which can use a different topic and length — state does not persist between rounds (score is local to run_quiz).
+Just as in the C# version, main() is intentionally thin. It only orchestrates three things per round: ask which topic, ask how many questions, run the quiz. The play_again loop means the whole program is really a loop of independent "rounds," each of which can use a different topic and length; state does not persist between rounds (score is local to run_quiz).
 The program is launched via the standard Python guard at the bottom of the file:
 
 ```python
 ```
 
     main()
-This is Python's idiom for "only run this when the file is executed directly, not when it's imported as a module" — there is no direct C# equivalent, since C#'s Main() is always the designated entry point of the assembly rather than something inferred from how the file is invoked.
+This is Python's idiom for "only run this when the file is executed directly, not when it's imported as a module". There is no direct C# equivalent, since C#'s Main() is always the designated entry point of the assembly rather than something inferred from how the file is invoked.
 
 ### 3.1 Input collection helpers
 
