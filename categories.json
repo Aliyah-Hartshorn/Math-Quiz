@@ -1,6 +1,3 @@
-
-
-Profile avatar
 {
   "Arithmetic": [
     { "generator": "whole_addition", "params": { "min_value": 1, "max_value": 20 } },
