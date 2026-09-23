@@ -1,3 +1,6 @@
+
+
+Profile avatar
 {
   "Arithmetic": [
     { "generator": "whole_addition", "params": { "min_value": 1, "max_value": 20 } },
@@ -9,7 +12,11 @@
     { "generator": "fraction_of_number" },
     { "generator": "percentage_of" },
     { "generator": "decimal_multiplication" },
-    { "generator": "percentage_change" }
+    { "generator": "percentage_change" },
+    { "generator": "order_of_operations" },
+    { "generator": "fraction_addition" },
+    { "generator": "ratio_question" },
+    { "generator": "square_root_question" }
   ],
   "Number Theory": [
     { "generator": "modulo_basic" },
@@ -25,7 +32,10 @@
     { "generator": "solve_two_step_linear" },
     { "generator": "evaluate_expression" },
     { "generator": "quadratic_larger_root" },
-    { "generator": "linear_system_solve_x" }
+    { "generator": "linear_system_solve_x" },
+    { "generator": "expand_brackets" },
+    { "generator": "factorise_quadratic" },
+    { "generator": "solve_quadratic" }
   ],
   "Precalculus": [
     { "generator": "function_composition_linear" },
@@ -41,14 +51,18 @@
     { "generator": "triangle_area" },
     { "generator": "circle_area" },
     { "generator": "pythagorean_hypotenuse" },
-    { "generator": "rectangular_prism_volume" }
+    { "generator": "rectangular_prism_volume" },
+    { "generator": "circle_circumference" },
+    { "generator": "triangle_missing_side" },
+    { "generator": "surface_area_cuboid" }
   ],
   "Trigonometry": [
     { "generator": "sine_of_common_angle" },
     { "generator": "cosine_of_common_angle" },
     { "generator": "tangent_of_common_angle" },
     { "generator": "triangle_missing_angle" },
-    { "generator": "right_triangle_opposite_side" }
+    { "generator": "right_triangle_opposite_side" },
+    { "generator": "right_triangle_adjacent_side" }
   ],
   "Combinatorics": [
     { "generator": "factorial_value" },
@@ -60,7 +74,9 @@
     { "generator": "mean_of_list" },
     { "generator": "range_of_list" },
     { "generator": "median_of_list" },
-    { "generator": "simple_probability" }
+    { "generator": "simple_probability" },
+    { "generator": "mode_of_list" },
+    { "generator": "probability_as_percentage" }
   ],
   "Complex Numbers": [
     { "generator": "complex_addition_component" },
