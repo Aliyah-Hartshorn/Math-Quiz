@@ -5,13 +5,6 @@ A section-by-section walkthrough of math_quiz.py, a Python port of the original 
 
 > **Documentation note:** This README is structured as a technical walkthrough. Headings, spacing, code blocks, bullet lists, and tables are used consistently so that the document is easier to scan and maintain without changing the program's documented behaviour.
 
-## 1. Overview
-
-This is a single-file Python console application (math_quiz.py) that generates randomized, timed math questions across seven topics — Arithmetic, Algebra, Geometry, Trigonometry, Calculus, Linear Algebra, and Statistics — with difficulty that increases as the player progresses through a round.
-It is a direct, function-for-function port of the original C# version (Program.cs). The public behavior — every prompt, every formula, every difficulty curve, every edge case — is unchanged; what's different is purely how those ideas are expressed in idiomatic Python: class Question with typed fields becomes a @dataclass, C# Func<Question> delegates become plain Python callables (functions and lambdas), and Dictionary<string, List<Func<Question>>> becomes a Python dict[str, list[Callable[[], Question]]].
-It is entirely platform-independent: it uses only the Python standard library (random, math, time, dataclasses, typing) for I/O and math, so it runs identically on Windows, macOS, and Linux with any Python 3.9+ interpreter; no pip install, no virtual environment, and no external packages are required.
-
-
 ## Contents
 
 1. [Overview](#1-overview)
@@ -25,6 +18,12 @@ It is entirely platform-independent: it uses only the Python standard library (r
 9. [Design Principles Summary](#9-design-principles-summary)
 10. [Step-by-Step: Getting It Running](#10-step-by-step-getting-it-running)
 11. [Runtime Walkthrough](#11-runtime-walkthrough-what-happens-when-you-run-it)
+
+## 1. Overview
+
+This is a single-file Python console application (math_quiz.py) that generates randomized, timed math questions across seven topics, Arithmetic, Algebra, Geometry, Trigonometry, Calculus, Linear Algebra, and Statistics, with difficulty that increases as the player progresses through a round.
+It is a direct, function-for-function port of the original C# version (Program.cs). The public behavior — every prompt, every formula, every difficulty curve, every edge case — is unchanged; what's different is purely how those ideas are expressed in idiomatic Python: class Question with typed fields becomes a @dataclass, C# Func<Question> delegates become plain Python callables (functions and lambdas), and Dictionary<string, List<Func<Question>>> becomes a Python dict[str, list[Callable[[], Question]]].
+It is entirely platform-independent: it uses only the Python standard library (random, math, time, dataclasses, typing) for I/O and math, so it runs identically on Windows, macOS, and Linux with any Python 3.9+ interpreter; no pip install, no virtual environment, and no external packages are required.
 
 The program has no external dependencies, no UI framework, and no persistence, everything lives in memory for the duration of a single run, exactly as in the original.
 
